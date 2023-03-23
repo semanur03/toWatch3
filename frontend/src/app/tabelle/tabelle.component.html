@@ -1,5 +1,5 @@
 <div class="container mt-3">
-    <h3 >Alle Einträge</h3>
+  <h3 >Alle Einträge</h3>
     <div class="table-responsive">
         <div *ngIf="selectedId == 0" class="container">
             <table class="m-3 table table-striped table-hover">
@@ -60,7 +60,9 @@
             <p>{{inhalt?.kategorie}}</p>
             <p>{{inhalt?.status}}</p>
             <p>{{inhalt?.bewertung}}</p>
-        </div><p><a [routerLink]="['/tabelle']">Zurück zur Tabelle</a></p>
+            <app-form [inhalt]="inhalt"></app-form>
+        </div>
+        <p><a [routerLink]="['/tabelle']">Zurück zur Tabelle</a></p>
     </div>
 
     <!-- modaler Dialog fuer das Loeschen -->

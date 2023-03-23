@@ -33,11 +33,33 @@ export class BackendService {
         }
       );
   }
+
   createOneInhalt(inhalt: Inhalt): void {
     this.http.post<Inhalt>(this.baseUrl + 'inhalt', inhalt)
       .subscribe(
         response => {
           console.log(response);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
+  getOne(id: string): Observable<Inhalt>{
+    return this.http.get<Inhalt>(this.baseUrl + 'inhalt/' + id);
+  }
+
+  update(id: string, inhalt: Inhalt): Observable<Inhalt> {
+    return this.http.patch<Inhalt>(this.baseUrl + 'inhalt/' + id, inhalt);
+  }
+
+  updateInhalt(inhaltId: number, inhalt: Inhalt): void {
+    this.http.put<Inhalt>(this.baseUrl + 'inhalt/' + inhaltId, inhalt)
+      .subscribe(
+        response => {
+          console.log(response);
+          console.log(response.id);
         },
         error => {
           console.log(error);

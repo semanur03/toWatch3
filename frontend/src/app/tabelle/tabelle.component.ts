@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {BackendService} from '../shared/backend.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Inhalt } from '../shared/inhalt';
@@ -63,39 +63,45 @@ export class TabelleComponent implements OnInit {
   trackByInhalt(index: number, inhalt: Inhalt): number { return inhalt.id; }
 
   readAll(): void {
-      this.cs.getAllInhalt().subscribe(
-      {
-        next: (response) => {
-        this.inhalte = response;
-        console.log(this.inhalte);
-        return this.inhalte;
-        },
-        error: (err) => console.log(err),
-        complete: () => console.log('getAll() completed')
-      });
-      
-      } 
-      readOne(id: number): void {
-        this.cs.getInhaltById(id).subscribe(
-          (response: Inhalt) => this.inhalt = response,
-          error => this.error = error,
-        );
-      }
-
-      deleteOne(inhaltId: number): void {
-        this.cs.deleteOneInhalt(inhaltId);
-        window.location.reload();
-      }
+    this.cs.getAllInhalt().subscribe(
+    {
+      next: (response) => {
+      this.inhalte = response;
+      console.log(this.inhalte);
+      return this.inhalte;
+      },
+      error: (err) => console.log(err),
+      complete: () => console.log('getAll() completed')
+    }); 
     
-      open(content: any, id: number): void {
-        this.readOne(id);
-        this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-          this.closeResult = `Closed with: ${result}`;
-          console.log(this.closeResult);
-          if (result === 'delete')
-          {
-            this.deleteOne(this.inhalt?.id);
-          }
-        });
+  } 
+  readOne(id: number): void {
+    this.cs.getInhaltById(id).subscribe(
+      (response: Inhalt) => this.inhalt = response,
+      error => this.error = error,
+    );
+  }
+
+  deleteOne(inhaltId: number): void {
+    this.cs.deleteOneInhalt(inhaltId);
+    window.location.reload();
+  }
+    
+  open(content: any, id: number): void {
+    this.readOne(id);
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      console.log(this.closeResult);
+      if (result === 'delete')
+      {
+        this.deleteOne(this.inhalt?.id);
       }
-    }
+    });
+  }
+  updateInhalt(inhalt: Inhalt): void {
+    this.inhalt = inhalt;
+    this.cs.updateInhalt(this.inhalt.id, this.inhalt);
+    this.router.navigateByUrl('/tabelle');
+  }
+  
+}

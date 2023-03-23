@@ -2,6 +2,7 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Inhalt } from '../../shared/inhalt';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class FormComponent implements OnInit {
         statusControl: ['', Validators.required],
         bewertungControl: ['', Validators.required],
       }
-    );
+    );this.inhalt = { id: 0, titel: '', beschreibung: '', genre: '', was: '', kategorie:'', status:'', bewertung:0,};
   }
 
   ngOnInit(): void {
