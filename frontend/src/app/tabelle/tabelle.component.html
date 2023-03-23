@@ -1,0 +1,135 @@
+<div class="container mt-3">
+    <h3 >Alle Einträge</h3>
+    <div class="table-responsive">
+        <div *ngIf="selectedId == 0" class="container">
+            <table class="m-3 table table-striped table-hover">
+                <caption>Inhalt<code>inhalt</code></caption>
+                <thead>
+                    <tr>
+                        <th scope="col ">Nr</th>
+                        <th scope="col ">Titel</th>
+                        <th scope="col ">Beschreibung</th>
+                        <th scope="col ">Genre</th>
+                        <th scope="col ">Was</th>
+                        <th scope="col ">Kategorie</th>
+                        <th scope="col ">Status</th>
+                        <th scope="col ">Bewertung</th>
+                        <th scope="col ">Edit</th>
+                        <th scope="col ">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let inhalt of inhalte; let i=index;  trackBy: trackByInhalt">
+                        <td>{{ i+1 }}</td>
+                        <td>{{inhalt.titel}}</td>
+                        <td>{{inhalt.beschreibung}}</td>
+                        <td>{{inhalt.genre}}</td>
+                        <td>{{inhalt.was}}</td>
+                        <td>{{inhalt.kategorie}}</td>
+                        <td>{{inhalt.status}}</td>
+                        <td>{{inhalt.bewertung}}</td>
+                        <td><a [routerLink]="['/tabelle/', inhalt.id]">
+                            <i-bs
+                            name="pencil-square"
+                            class="text-secondary"
+                            width="1em"
+                            height="1em">
+                        </i-bs></a></td>
+                        <td><i-bs
+                            name="trash"
+                            class="text-secondary"
+                            width="1em"
+                            height="1em"
+                            (click)="open(content, inhalt.id)">
+                          </i-bs></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="selectedId > 0" class="container">
+            <h1>{{ selectedId }}</h1>
+            <div *ngIf="error">
+                <p>{{ error?.message }}</p>
+                <p>{{ error?.status }}</p>
+              </div>
+            <div *ngIf="inhalt">
+            <p>{{inhalt?.titel}}</p>
+            <p>{{inhalt?.beschreibung}}</p>
+            <p>{{inhalt?.genre}}</p>
+            <p>{{inhalt?.was}}</p>
+            <p>{{inhalt?.kategorie}}</p>
+            <p>{{inhalt?.status}}</p>
+            <p>{{inhalt?.bewertung}}</p>
+        </div><p><a [routerLink]="['/tabelle']">Zurück zur Tabelle</a></p>
+    </div>
+
+    <!-- modaler Dialog fuer das Loeschen -->
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Confirm delete</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('cancel')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h4 style="color: red">Do you really want to delete this data set?</h4>
+      <form [formGroup]="form">
+        <div class="form-group">
+          <label for="inpId">id</label>
+          <div class="input-group">
+            <input id="inpId" class="form-control" formControlName="iControl" value="{{ inhalt?.id }}" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inpTT">titel</label>
+          <div class="input-group">
+            <input id="inpTT" class="form-control" formControlName="ttControl" value="{{ inhalt?.titel }}" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inpBes">beschreibung</label>
+          <div class="input-group">
+            <input id="inpBes" class="form-control" formControlName="beschControl" value="{{ inhalt?.beschreibung }}" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inpGen">genre</label>
+          <div class="input-group">
+            <input id="inpGen" class="form-control" formControlName="genControl" value="{{ inhalt?.genre }}" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="inpW">was</label>
+            <div class="input-group">
+              <input id="inpW" class="form-control" formControlName="wControl" value="{{ inhalt?.was }}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inpkat">Kategorie</label>
+            <div class="input-group">
+              <input id="inpKat" class="form-control" formControlName="katControl" value="{{ inhalt?.kategorie }}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inpST">status</label>
+            <div class="input-group">
+              <input id="inpST" class="form-control" formControlName="stControl" value="{{ inhalt?.status }}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inpBew">bewertung</label>
+            <div class="input-group">
+              <input id="inpbew" class="form-control" formControlName="bewControl" value="{{ inhalt?.bewertung }}" readonly>
+            </div>
+          </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('cancel')">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="modal.close('delete')">Delete</button>
+    </div>
+  </ng-template>
+</div>
+
+  
