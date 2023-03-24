@@ -47,7 +47,7 @@ Inhalt.findById = (inhaltId, result) => {
 };
 
 Inhalt.findByGenre = (inhaltGenre, result) => {
-    sql.query(`SELECT * FROM inhalt WHERE genre = ${inhaltGenre}`, (err, res) => {
+    sql.query(`SELECT * FROM inhalt WHERE genre = ${inhaltGenre} ORDER BY titel asc`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
@@ -66,7 +66,7 @@ Inhalt.findByGenre = (inhaltGenre, result) => {
 };
 
 Inhalt.findByKategorie = (inhaltKategorie, result) => {
-    sql.query(`SELECT * FROM inhalt WHERE kategorie = ${inhaltKategorie}`, (err, res) => {
+    sql.query(`SELECT * FROM inhalt WHERE kategorie = ${inhaltKategorie} ORDER BY titel asc`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
@@ -85,7 +85,7 @@ Inhalt.findByKategorie = (inhaltKategorie, result) => {
 
 
 };Inhalt.findByWas = (inhaltWas, result) => {
-    sql.query(`SELECT * FROM inhalt WHERE was = ${inhaltWas}`, (err, res) => {
+    sql.query(`SELECT * FROM inhalt WHERE was = ${inhaltWas} ORDER BY titel asc`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
@@ -103,7 +103,7 @@ Inhalt.findByKategorie = (inhaltKategorie, result) => {
     });
 
 };Inhalt.findByStatus = (inhaltStatus, result) => {
-    sql.query(`SELECT * FROM inhalt WHERE status = ${inhaltStatus}`, (err, res) => {
+    sql.query(`SELECT * FROM inhalt WHERE status = ${inhaltStatus} ORDER BY titel asc`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
@@ -122,7 +122,7 @@ Inhalt.findByKategorie = (inhaltKategorie, result) => {
 }
 
 Inhalt.getAll = (result) => {
-    sql.query("SELECT * FROM inhalt;", (err, res) => {
+    sql.query("SELECT * FROM inhalt ORDER BY titel asc", (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(null, err);
