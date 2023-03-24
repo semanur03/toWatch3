@@ -51,8 +51,11 @@
             <div *ngIf="error">
                 <p>{{ error?.message }}</p>
                 <p>{{ error?.status }}</p>
-              </div>
-            <div *ngIf="inhalt">
+                <p><a [routerLink]="['/tabelle']">Zurück zur Tabelle</a></p>
+            </div>
+          <div *ngIf="inhalt">
+            <app-form [inhalt]="inhalt" (updateEvent)="update($event)"></app-form>
+          </div>
             <p>{{inhalt?.titel}}</p>
             <p>{{inhalt?.beschreibung}}</p>
             <p>{{inhalt?.genre}}</p>
@@ -60,11 +63,8 @@
             <p>{{inhalt?.kategorie}}</p>
             <p>{{inhalt?.status}}</p>
             <p>{{inhalt?.bewertung}}</p>
-            <app-form [inhalt]="inhalt"></app-form>
         </div>
-        <p><a [routerLink]="['/tabelle']">Zurück zur Tabelle</a></p>
-    </div>
-
+    
     <!-- modaler Dialog fuer das Loeschen -->
 
 <ng-template #content let-modal>

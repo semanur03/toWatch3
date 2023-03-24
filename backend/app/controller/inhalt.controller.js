@@ -132,7 +132,7 @@ exports.update = (req, res) => {
             message: "Content can not be empty!"
         });
     }
-    
+
     const inhalt = new Inhalt({
         titel: req.body.titel,
         beschreibung: req.body.beschreibung,

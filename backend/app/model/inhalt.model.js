@@ -136,8 +136,8 @@ Inhalt.getAll = (result) => {
 
 Inhalt.updateById = (id, inhalt, result) => {
     sql.query(
-        "UPDATE inhalt SET titel = ?, beschreibung = ?, genre = ?, was = ?, kategorie = ?, status = ?, bewertung = ?, WHERE id = ?",
-        [inhalt.titel, inhalt.beschreibung, inhalt.genre, inhalt.was, inhalt.kategorie, inhalt.status, inhalt.bewertung, id],
+        "UPDATE inhalt SET titel = ?, beschreibung = ?, genre = ?, kategorie = ?, was = ?, status = ?, bewertung = ? WHERE id = ?",
+        [inhalt.titel, inhalt.beschreibung, inhalt.genre, inhalt.kategorie, inhalt.was, inhalt.status, inhalt.bewertung, id],
         (err, res) => {
             if (err) {
                 console.log("error: ", err);

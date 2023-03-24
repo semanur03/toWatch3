@@ -98,9 +98,9 @@ export class TabelleComponent implements OnInit {
       }
     });
   }
-  updateInhalt(inhalt: Inhalt): void {
+  update(inhalt: Inhalt): void {
     this.inhalt = inhalt;
-    this.cs.updateInhalt(this.inhalt.id, this.inhalt);
+    this.cs.update(this.inhalt.id, this.inhalt);
     this.router.navigateByUrl('/tabelle');
   }
   

@@ -7,22 +7,22 @@ import { Inhalt } from './inhalt';
   providedIn: 'root'
 })
 export class BackendService {
-  baseUrl = 'http://localhost:3000/';
+  baseUrl = 'http://localhost:3000/inhalt';
 
   constructor(private http: HttpClient) { }
 
   getAllInhalt(): Observable<Inhalt[]>{
     return this.http
-      .get<Inhalt[]>(this.baseUrl + 'inhalt');
+      .get<Inhalt[]>(this.baseUrl );
   }
 
   getInhaltById(inhaltId: number): Observable<Inhalt> {
     return this.http
-      .get<Inhalt>(this.baseUrl + 'inhalt/' + inhaltId);
+      .get<Inhalt>(this.baseUrl + '/' + inhaltId);
   }
 
   deleteOneInhalt(inhaltId: number): void {
-    this.http.delete<Inhalt>(this.baseUrl + 'inhalt/' + inhaltId)
+    this.http.delete<Inhalt>(this.baseUrl + '/' + inhaltId)
       .subscribe(
         response => {
           console.log(response);
@@ -35,7 +35,7 @@ export class BackendService {
   }
 
   createOneInhalt(inhalt: Inhalt): void {
-    this.http.post<Inhalt>(this.baseUrl + 'inhalt', inhalt)
+    this.http.post<Inhalt>(this.baseUrl , inhalt)
       .subscribe(
         response => {
           console.log(response);
@@ -47,15 +47,11 @@ export class BackendService {
   }
 
   getOne(id: string): Observable<Inhalt>{
-    return this.http.get<Inhalt>(this.baseUrl + 'inhalt/' + id);
+    return this.http.get<Inhalt>(this.baseUrl + '/' + id);
   }
 
-  update(id: string, inhalt: Inhalt): Observable<Inhalt> {
-    return this.http.patch<Inhalt>(this.baseUrl + 'inhalt/' + id, inhalt);
-  }
-
-  updateInhalt(inhaltId: number, inhalt: Inhalt): void {
-    this.http.put<Inhalt>(this.baseUrl + 'inhalt/' + inhaltId, inhalt)
+  update(inhaltId: number, inhalt: Inhalt): void {
+    this.http.put<Inhalt>(this.baseUrl + '/' + inhaltId, inhalt)
       .subscribe(
         response => {
           console.log(response);
