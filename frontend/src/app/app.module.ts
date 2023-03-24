@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { CreateComponent } from './create/create.component';
 import { FormComponent } from './tabelle/form/form.component';
+import { HomeComponent } from './home/home.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,6 +32,7 @@ const icons = {
     NavComponent,
     FormComponent,
     CreateComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

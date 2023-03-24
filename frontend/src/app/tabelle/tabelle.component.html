@@ -4,7 +4,6 @@
     <div class="table-responsive">
         <div *ngIf="selectedId == 0" class="container">
             <table class="m-3 table table-striped table-hover">
-                <caption>Inhalt<code>inhalt</code></caption>
                 <thead>
                     <tr>
                         <th scope="col ">Nr</th>
@@ -46,6 +45,7 @@
                     </tr>
                 </tbody>
             </table>
+            <br>
         </div>
         <div *ngIf="selectedId > 0" class="container">
             <h1>Inhalt mit der Id: {{ selectedId }} aktualisieren</h1>
