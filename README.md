@@ -19,16 +19,27 @@ Es gibt einige Kriterien, die man befüllen kann, oder auch leer lassen kann. Ei
 
 Begrüßungsseite, wenn man die Anwendung öffnet.
 
+![Begrüßung](seite1.png)
+
 #### Tabelle
 
 Da kann man alle Einträge der Datenbank einsehen. 
+
+![Tabelle](seite2.png)
+
 Wenn man auf den Strift klick, öffnet sich ein Bearbeitungsfenster, wo man den gewählten Inhalt bearbeiten kann.
+
+![Bearbeiten](seite4.png)
+
 Mit der Mülltonne kann man den gewählten Inhalt erst löschen, wenn man nach dem draufklicken das Löschen bestätigt. Somit soll verhindert werden, ausversehen den Eintrag zu löschen.
+
+![Löschen](seite5.png)
 
 #### Hinzufügen
 
 Erlaubt dem Nutzer, einen neuen Eintrag zu erstellen.
 
+![Hinzufügen](seite3.png)
 
 ### Installation
 ***
