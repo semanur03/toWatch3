@@ -39,8 +39,8 @@ export class TabelleComponent implements OnInit {
         ttControl: ['', Validators.required],
         beschControl: ['', Validators.required],
         genControl: ['', Validators.required],
-        wControl: ['', Validators.required],
         katControl: ['', Validators.required],
+        wControl: ['', Validators.required],
         stControl: ['', Validators.required],
         bewControl: ['', Validators.required],
       }

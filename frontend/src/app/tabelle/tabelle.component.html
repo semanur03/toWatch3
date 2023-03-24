@@ -48,7 +48,8 @@
             <br>
         </div>
         <div *ngIf="selectedId > 0" class="container">
-            <h1>Inhalt mit der Id: {{ selectedId }} aktualisieren</h1>
+          <br>
+            <h3>Inhalt mit der Id: {{ selectedId }} aktualisieren</h3>
             <div *ngIf="error">
                 <p>{{ error?.message }}</p>
                 <p>{{ error?.status }}</p>
@@ -96,7 +97,7 @@
           </div>
         </div>
         <div class="form-group">
-            <label for="inpkat">Kategorie</label>
+            <label for="inpKat">Kategorie</label>
             <div class="input-group">
               <input id="inpKat" class="form-control" formControlName="katControl" value="{{ inhalt?.kategorie }}" readonly>
             </div>
@@ -116,7 +117,7 @@
           <div class="form-group">
             <label for="inpBew">bewertung</label>
             <div class="input-group">
-              <input id="inpbew" class="form-control" formControlName="bewControl" value="{{ inhalt?.bewertung }}" readonly>
+              <input id="inpBew" class="form-control" formControlName="bewControl" value="{{ inhalt?.bewertung }}" readonly>
             </div>
           </div>
       </form>
