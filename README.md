@@ -43,7 +43,12 @@ Erlaubt dem Nutzer, einen neuen Eintrag zu erstellen.
 
 ### Installation
 ***
+1. Repository clonen <br>
+[GitHub Repository ](https://github.com/semanur03/toWatch3.git)
 
+2. SQL Datei in MySQL hinzufügen
+
+3. MySQL, Frontend und Backend starten
 
 ### Technologien
 *** 
