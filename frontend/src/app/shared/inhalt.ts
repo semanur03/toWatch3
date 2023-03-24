@@ -3,8 +3,8 @@ export interface Inhalt {
     titel: string;
     beschreibung: string;
     genre: string;
-    kategorie: string;
     was: string;
+    kategorie: string;
     status: string;
     bewertung: number;
 }

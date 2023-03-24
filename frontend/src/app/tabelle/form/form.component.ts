@@ -22,12 +22,12 @@ export class FormComponent implements OnInit {
         titelControl: ['', Validators.required],
         beschreibungControl: ['', Validators.required],
         genreControl: ['', Validators.required],
+        kategorieControl: ['', Validators.required],
         wasControl: ['', Validators.required],
-        kategorieNameControl: ['', Validators.required],
         statusControl: ['', Validators.required],
         bewertungControl: ['', Validators.required],
       }
-    );this.inhalt = { id: 0, titel: '', beschreibung: '', genre: '', was: '', kategorie:'', status:'', bewertung:0,};
+    );this.inhalt = { id: 0, titel: '', beschreibung: '', genre: '', kategorie:'', was: '', status:'', bewertung:0,};
   }
 
   ngOnInit(): void {
@@ -36,8 +36,8 @@ export class FormComponent implements OnInit {
       titelControl: this.inhalt?.titel,
       beschreibungControl: this.inhalt?.beschreibung,
       genreControl: this.inhalt?.genre,
-      wasControl: this.inhalt?.was,
       kategorieControl: this.inhalt?.kategorie,
+      wasControl: this.inhalt?.was,
       statusControl: this.inhalt?.status,
       bewertungControl: this.inhalt?.bewertung,
 
@@ -50,8 +50,8 @@ export class FormComponent implements OnInit {
     this.inhalt.titel = values.titelControl;
     this.inhalt.beschreibung= values.beschreibungControl;
     this.inhalt.genre = values.genreControl;
-    this.inhalt.was = values.wasControl;
     this.inhalt.kategorie = values.kategorieControl;
+    this.inhalt.was = values.wasControl;
     this.inhalt.status= values.statusControl;
     this.inhalt.bewertung = values.bewertungControl;
     this.updateEvent.emit(this.inhalt);
