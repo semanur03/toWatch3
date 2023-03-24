@@ -1,5 +1,6 @@
+<br>
 <div class="container mt-3">
-  <h3 >Alle Einträge</h3>
+  <div class="background">
     <div class="table-responsive">
         <div *ngIf="selectedId == 0" class="container">
             <table class="m-3 table table-striped table-hover">
@@ -10,8 +11,8 @@
                         <th scope="col ">Titel</th>
                         <th scope="col ">Beschreibung</th>
                         <th scope="col ">Genre</th>
-                        <th scope="col ">Was</th>
                         <th scope="col ">Kategorie</th>
+                        <th scope="col ">Was</th>
                         <th scope="col ">Status</th>
                         <th scope="col ">Bewertung</th>
                         <th scope="col ">Edit</th>
@@ -24,8 +25,8 @@
                         <td>{{inhalt.titel}}</td>
                         <td>{{inhalt.beschreibung}}</td>
                         <td>{{inhalt.genre}}</td>
-                        <td>{{inhalt.was}}</td>
                         <td>{{inhalt.kategorie}}</td>
+                        <td>{{inhalt.was}}</td>
                         <td>{{inhalt.status}}</td>
                         <td>{{inhalt.bewertung}}</td>
                         <td><a [routerLink]="['/tabelle/', inhalt.id]">
@@ -47,7 +48,7 @@
             </table>
         </div>
         <div *ngIf="selectedId > 0" class="container">
-            <h1>{{ selectedId }}</h1>
+            <h1>Inhalt mit der Id: {{ selectedId }} aktualisieren</h1>
             <div *ngIf="error">
                 <p>{{ error?.message }}</p>
                 <p>{{ error?.status }}</p>
@@ -56,26 +57,19 @@
           <div *ngIf="inhalt">
             <app-form [inhalt]="inhalt" (updateEvent)="update($event)"></app-form>
           </div>
-            <p>{{inhalt?.titel}}</p>
-            <p>{{inhalt?.beschreibung}}</p>
-            <p>{{inhalt?.genre}}</p>
-            <p>{{inhalt?.was}}</p>
-            <p>{{inhalt?.kategorie}}</p>
-            <p>{{inhalt?.status}}</p>
-            <p>{{inhalt?.bewertung}}</p>
         </div>
-    
+    </div>
     <!-- modaler Dialog fuer das Loeschen -->
 
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Confirm delete</h4>
+      <h4 class="modal-title" id="modal-basic-title">Löschen bestätigen</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('cancel')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <h4 style="color: red">Do you really want to delete this data set?</h4>
+      <h4 style="color: #d34313">Möchtest du diesen Inhalt wirklich löschen?</h4>
       <form [formGroup]="form">
         <div class="form-group">
           <label for="inpId">id</label>
@@ -102,15 +96,15 @@
           </div>
         </div>
         <div class="form-group">
-            <label for="inpW">was</label>
-            <div class="input-group">
-              <input id="inpW" class="form-control" formControlName="wControl" value="{{ inhalt?.was }}" readonly>
-            </div>
-          </div>
-          <div class="form-group">
             <label for="inpkat">Kategorie</label>
             <div class="input-group">
               <input id="inpKat" class="form-control" formControlName="katControl" value="{{ inhalt?.kategorie }}" readonly>
+            </div>
+          </div>
+        <div class="form-group">
+            <label for="inpW">was</label>
+            <div class="input-group">
+              <input id="inpW" class="form-control" formControlName="wControl" value="{{ inhalt?.was }}" readonly>
             </div>
           </div>
           <div class="form-group">
@@ -128,10 +122,18 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" (click)="modal.close('cancel')">Cancel</button>
-      <button type="button" class="btn btn-primary" (click)="modal.close('delete')">Delete</button>
+      <button class="abbrechen">
+        <button type="button" (click)="modal.close('cancel')">Abbrechen</button>
+      </button>
+      <br>
+      <button class="bestätigen">
+        <button type="button" (click)="modal.close('delete')">Löschen</button>
+      </button>
     </div>
   </ng-template>
 </div>
+<br>
+<br>
+<br>
 
   

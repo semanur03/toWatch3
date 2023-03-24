@@ -1,3 +1,6 @@
+<br>
+<br>
+<br>
 <div class="container">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group row">
@@ -6,50 +9,60 @@
           <input type="text" class="form-control" formControlName="titelControl" id="inputTitel">
         </div>
       </div>
-  
+      <br>
       <div class="form-group row">
         <label for="inputBeschreibung" class="col-sm-2 col-form-label">Beschreibung</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" formControlName="beschreibungControl" id="inputBeschreibung">
         </div>
       </div>
-  
+      <br>
       <div class="form-group row">
         <label for="inputGenre" class="col-sm-2 col-form-label">Genre</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" formControlName="genreControl" id="inputGenre">
         </div>
       </div>
+      <br>
       <div class="form-group row">
         <label for="inputKategorie" class="col-sm-2 col-form-label">Kategorie</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" formControlName="kategorieControl" id="inputKategorie">
         </div>
       </div>
+      <br>
       <div class="form-group row">
         <label for="inputWas" class="col-sm-2 col-form-label">Was</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" formControlName="wasControl" id="inputWas">
         </div>
       </div>
+      <br>
       <div class="form-group row">
         <label for="inputStatus" class="col-sm-2 col-form-label">Status</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" formControlName="statusControl" id="inputStatus">
         </div>
       </div>
+      <br>
       <div class="form-group row">
         <label for="inputBewertung" class="col-sm-2 col-form-label">Bewertung</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" formControlName="bewertungControl" id="inputBewertung">
         </div>
       </div>
+      <br>
       <div class="form-group row">
-        <div class="col-sm-6">
-          <button type="submit" class="btn btn-primary btn-block" (click)="onSubmit()">Create</button>
+        <div class="col-6 ">
+          <!-- <button class="hinzufügen">Hinzufügen</button> -->
+          <button class="rise">
+            <button type="submit" (click)="onSubmit()">Hinzufügen</button>
+          </button>
         </div>
-        <div class="col-sm-6">
-          <button type="cancel" class="btn btn-secondary btn-block" (click)="cancel()">Cancel</button>
+        <div class="col-6 ">
+          <button class="abbrechen">
+          <button type="cancel"  (click)="cancel()">Abbrechen</button>
+          </button>
         </div>
       </div>
     </form>

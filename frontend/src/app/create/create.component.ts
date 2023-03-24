@@ -24,7 +24,7 @@ export class CreateComponent implements OnInit {
         titelControl: ['', Validators.required],
         beschreibungControl: ['', Validators.required],
         genreControl: ['', Validators.required],
-        kategorieNameControl: ['', Validators.required],
+        kategorieControl: ['', Validators.required],
         wasControl: ['', Validators.required],
         statusControl: ['', Validators.required],
         bewertungControl: ['', Validators.required],
