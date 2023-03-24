@@ -104,4 +104,26 @@ export class TabelleComponent implements OnInit {
     this.router.navigateByUrl('/tabelle');
   }
   
+  suchen( suche:string): void{
+    this.cs.findByGenre(suche).subscribe(
+      (response: Inhalt) => this.inhalt = response,
+      error => this.error = error,
+    );
+
+    this.cs.findByKategorie(suche).subscribe(
+      (response: Inhalt) => this.inhalt = response,
+      error => this.error = error,
+    );
+
+    this.cs.findByWas(suche).subscribe(
+      (response: Inhalt) => this.inhalt = response,
+      error => this.error = error,
+    );
+
+    this.cs.findByStatus(suche).subscribe(
+      (response: Inhalt) => this.inhalt = response,
+      error => this.error = error,
+    );
+
+  }
 }

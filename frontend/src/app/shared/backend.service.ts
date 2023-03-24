@@ -63,4 +63,20 @@ export class BackendService {
       );
   }
 
+  findByGenre(genre: string): Observable<Inhalt>{
+    return this.http.get<Inhalt>(this.baseUrl + '/genre/' + genre);
+  }
+
+  findByKategorie(kategorie: string): Observable<Inhalt>{
+    return this.http.get<Inhalt>(this.baseUrl + '/kategorie/' + kategorie);
+  }
+
+  findByWas(was: string): Observable<Inhalt>{
+    return this.http.get<Inhalt>(this.baseUrl + '/was/' + was);
+  }
+
+  findByStatus(status: string): Observable<Inhalt>{
+    return this.http.get<Inhalt>(this.baseUrl + '/status/' + status);
+
+  }
 }
